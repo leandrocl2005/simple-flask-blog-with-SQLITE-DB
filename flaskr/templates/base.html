@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+
+    <nav>
+      <h1>Simple Blog</h1>
+    </nav>
+
+    <section class="content">
+        <header>
+          {% block header %}{% endblock %}
+        </header>
+
+        {% for message in get_flashed_messages() %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+        
+        {% block content %}{% endblock %}
+    </section>
+  </body>
+</html>
